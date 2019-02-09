@@ -2,6 +2,7 @@
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 (menu-bar-mode 1)
+
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
 You should not put any user code in this function besides modifying the variable
@@ -133,9 +134,9 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("PxPlus IBM VGA8"
+   dotspacemacs-default-font '("Terminus (TTF)"
                                :size 18
-                               :weight normal
+                               :weight bold
                                :width normal
                                :powerline-scale 1.1)
    ;; The leader key
