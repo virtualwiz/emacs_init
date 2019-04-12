@@ -1,10 +1,6 @@
 ;; -*- mode: emacs-lisp -*-
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
-(menu-bar-mode 1)
-(add-hook 'pdf-view-mode-hook (lambda() (linum-mode -1)))
-(add-hook 'pdf-view-mode-hook 'pdf-view-midnight-minor-mode)
-
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
 You should not put any user code in this function besides modifying the variable
@@ -311,6 +307,9 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (global-company-mode)
+  (blink-cursor-mode)
+  (add-hook 'pdf-view-mode-hook (lambda() (linum-mode -1)))
+  (add-hook 'pdf-view-mode-hook 'pdf-view-midnight-minor-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
