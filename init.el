@@ -7,10 +7,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(font-use-system-font t)
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (reverse-theme pdf-tools w3m which-key iedit auto-complete restart-emacs magit counsel ivy-hydra ivy try)))
+    (auto-complete-auctex yasnippet auctex reverse-theme pdf-tools w3m which-key iedit auto-complete restart-emacs magit counsel ivy-hydra ivy try)))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil))
 
@@ -26,7 +27,7 @@
 ;; configure linum
 (global-linum-mode)
 (add-hook 'pdf-view-mode-hook (lambda() (linum-mode -1)))
-
+	  
 ;; configure PDF tools
 (pdf-tools-install)
 
@@ -37,6 +38,16 @@
           (lambda ()
 	    (auto-complete-mode 1)
 	    ))
+
+;; configure auctex
+(setq TeX-view-program-selection '((output-pdf "PDF Tools"))
+      TeX-source-correlate-start-server t)
+(add-hook 'TeX-after-compilation-finished-functions
+           #'TeX-revert-document-buffer)
+(require 'auto-complete-auctex)
+
+;; configure yasnippet
+(yas-global-mode 1)
 
 ;; configure ivy
 (ivy-mode 1)
@@ -69,4 +80,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Terminus (TTF)" :foundry "unknown" :slant normal :weight normal :height 136 :width normal)))))
+ )
