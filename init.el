@@ -1,6 +1,6 @@
 ;; add package repositories
 (package-initialize)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -11,15 +11,24 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (auto-complete-auctex yasnippet auctex reverse-theme pdf-tools w3m which-key iedit auto-complete restart-emacs magit counsel ivy-hydra ivy try)))
+    (writegood-mode symon company yasnippet auctex reverse-theme pdf-tools w3m which-key iedit restart-emacs magit counsel ivy-hydra ivy try)))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil))
 
-;; configure auto-complete
-(ac-config-default)
+;; configure company
+(add-hook 'after-init-hook 'global-company-mode)
+(setq company-idle-delay 0.1)
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "M-n") nil)
+  (define-key company-active-map (kbd "M-p") nil)
+  (define-key company-active-map (kbd "C-n") #'company-select-next)
+  (define-key company-active-map (kbd "C-p") #'company-select-previous))
 
 ;; configure ispell
 (setq ispell-dictionary "british")
+
+;; configure writegood
+(require 'writegood-mode)
 
 ;; configure which-key
 (which-key-mode)
@@ -36,7 +45,7 @@
       (cons '("\\.m$" . octave-mode) auto-mode-alist))
 (add-hook 'octave-mode-hook
           (lambda ()
-	    (auto-complete-mode 1)
+	    (company-mode 1)
 	    ))
 
 ;; configure auctex
@@ -44,10 +53,13 @@
       TeX-source-correlate-start-server t)
 (add-hook 'TeX-after-compilation-finished-functions
            #'TeX-revert-document-buffer)
-(require 'auto-complete-auctex)
 
 ;; configure yasnippet
 (yas-global-mode 1)
+
+;; configure symon
+(require 'symon)
+(symon-mode)
 
 ;; configure ivy
 (ivy-mode 1)
