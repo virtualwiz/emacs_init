@@ -1,14 +1,17 @@
 ;; add package repositories
 (package-initialize)
-(add-to-list 'package-archives '("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/"))
+(add-to-list 'package-archives '("gnu-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/"))
+(add-to-list 'package-archives '("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(TeX-engine (quote xetex))
  '(font-use-system-font t)
  '(menu-bar-mode nil)
+ '(package-check-signature nil)
  '(package-selected-packages
    (quote
     (writegood-mode symon company yasnippet auctex reverse-theme pdf-tools w3m which-key iedit restart-emacs magit counsel ivy-hydra ivy try)))
@@ -93,3 +96,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(put 'downcase-region 'disabled nil)
