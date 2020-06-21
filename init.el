@@ -18,9 +18,13 @@
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil))
 
+;; configure indent-tab
+(setq-default indent-tabs-mode nil)
+
 ;; configure company
 (add-hook 'after-init-hook 'global-company-mode)
 (setq company-idle-delay 0.1)
+(global-set-key [?\M-m] 'set-mark-command)
 (with-eval-after-load 'company
   (define-key company-active-map (kbd "M-n") nil)
   (define-key company-active-map (kbd "M-p") nil)
