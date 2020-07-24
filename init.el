@@ -10,13 +10,20 @@
  ;; If there is more than one, they won't work right.
  '(TeX-engine (quote xetex))
  '(font-use-system-font t)
+ '(inhibit-splash-screen t)
  '(menu-bar-mode nil)
  '(package-check-signature nil)
  '(package-selected-packages
    (quote
-    (writegood-mode symon company yasnippet auctex reverse-theme pdf-tools w3m which-key iedit restart-emacs magit counsel ivy-hydra ivy try)))
+    (pyim writegood-mode symon company yasnippet auctex reverse-theme pdf-tools w3m which-key iedit restart-emacs magit counsel ivy-hydra ivy try)))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil))
+
+;; configure pyim
+(require 'pyim)
+(require 'pyim-basedict)
+(pyim-basedict-enable)
+(setq default-input-method "pyim")
 
 ;; configure indent-tab
 (setq-default indent-tabs-mode nil)
