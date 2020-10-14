@@ -25,7 +25,7 @@
 (pyim-basedict-enable)
 (setq default-input-method "pyim")
 
-;; configure indent-tab
+;; configure indents
 (setq-default indent-tabs-mode nil)
 
 ;; configure company
@@ -61,6 +61,9 @@
           (lambda ()
 	    (company-mode 1)
 	    ))
+
+;; configure Verilog mode
+(setq verilog-auto-newline nil)
 
 ;; configure auctex
 (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
